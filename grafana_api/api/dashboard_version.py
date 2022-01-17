@@ -46,8 +46,9 @@ class Dashboard_version(Base):
         r = self.api.POST(
             restore_dashboard_path,
             json={
-                "version": f"{versionid}"}
-                )
+                "version": f"{versionid}"
+                }
+            )
         return r
 
     def calculate_diff(self, basedashboard_id, baseversionid, newdashboard_id, newversionid, difftype):
@@ -59,7 +60,8 @@ class Dashboard_version(Base):
         """
         calculate_diff_path = f"/api/dashboards/calculate-diff"
 
-        r = self.api.POST(calculate_diff_path,
+        r = self.api.POST(
+            calculate_diff_path,
             json={
                 "base": {
                     "dashboardId": f"{basedashboard_id}",
